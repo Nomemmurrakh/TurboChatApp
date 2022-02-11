@@ -8,6 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.IBinder;
@@ -62,8 +66,6 @@ public class MessageListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentMessageListBinding.inflate(inflater);
-
-        ((AppCompatActivity)requireActivity()).setSupportActionBar(binding.messagesToolbar);
 
         inputManager = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
 
@@ -131,5 +133,17 @@ public class MessageListFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         listenerRegistration.remove();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        NavController navController = Navigation.findNavController(view);
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                navController.getGraph()
+        ).build();
+
+        NavigationUI.setupWithNavController(binding.messagesToolbar, navController, appBarConfiguration);
     }
 }
