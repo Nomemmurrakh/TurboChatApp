@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "680113685476",
+    "project_id": "turbo-chat-app",
+    "storage_bucket": "turbo-chat-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680113685476:android:1a344a2eabbdff76993df1",
+        "android_client_info": {
+          "package_name": "com.example.turbochatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "680113685476-ceaqtqcuak6skdvrhfckmjek6lunmcl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiuXoTKXLgIzdt8jLBgw__yYQJMJ0_G6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "680113685476-ceaqtqcuak6skdvrhfckmjek6lunmcl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

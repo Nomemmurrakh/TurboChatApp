@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/grouplist">
+
+    <fragment
+        android:id="@+id/grouplist"
+        android:name="com.example.turbochatapp.ui.group.GroupListFragment"
+        android:label="Groups"
+        tools:layout="@layout/fragment_group_list" >
+        <action
+            android:id="@+id/action_grouplist_to_usernameFragment"
+            app:destination="@id/usernameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messagelist"
+        android:name="com.example.turbochatapp.ui.message.MessageListFragment"
+        android:label="Messages"
+        tools:layout="@layout/fragment_message_list" >
+        <argument
+            android:name="group"
+            app:argType="com.example.turbochatapp.models.Group" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/usernameFragment"
+        android:name="com.example.turbochatapp.ui.username.UsernameFragment"
+        android:label="Username"
+        tools:layout="@layout/fragment_username">
+        <action
+            android:id="@+id/action_usernameFragment_to_messagelist"
+            app:destination="@id/messagelist" />
+        <argument
+            android:name="group"
+            app:argType="com.example.turbochatapp.models.Group" />
+    </fragment>
+</navigation>
